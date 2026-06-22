@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="各功能开关 (LSPosed 启用后自动生效)"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp" />
+
+    <Switch
+        android:id="@+id/switchMockHide"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="@string/label_mock_hide"
+        android:enabled="false" />
+
+    <Switch
+        android:id="@+id/switchCellHide"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="@string/label_cell_mode"
+        android:enabled="false" />
+
+    <Switch
+        android:id="@+id/switchWifiHide"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="@string/label_wifi_mode"
+        android:enabled="false" />
+
+    <Switch
+        android:id="@+id/switchSensorHide"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="@string/label_sensor_mode"
+        android:enabled="false" />
+
+    <Switch
+        android:id="@+id/switchBtHide"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="@string/label_bluetooth_mode"
+        android:enabled="false" />
+
+</LinearLayout>
