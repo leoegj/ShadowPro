@@ -1,0 +1,2 @@
+-keep class com.zfc.guard.ModuleEntry
+-keep class com.zfc.guard.hook.** { *; }
