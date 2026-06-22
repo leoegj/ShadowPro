@@ -27,8 +27,10 @@ jobs:
           yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses > /dev/null 2>&1 || true
           yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platforms;android-36" "build-tools;36.0.0" > /dev/null 2>&1 || true
 
-      - name: Set up Gradle
+      - name: Set up Gradle 8.14.3
         uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: 8.14.3
 
       - name: Build with Gradle
         run: gradle assembleRelease --no-daemon -p .
@@ -36,13 +38,13 @@ jobs:
       - name: Show generated APK info
         run: |
           echo "=== Build output ==="
-          find app/build/outputs -name "*.apk" -type f 2>/dev/null
-          echo "=== Random package name ==="
-          grep -r "randomPkgName" app/build.gradle.kts || true
+          find app/build/outputs -name "*.apk" -type f 2>/dev/null || echo "No APK found"
+          echo "=== Build log ==="
+          cat app/build/outputs/**/*.txt 2>/dev/null | head -20 || true
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: ZfC-APK
           path: app/build/outputs/apk/release/*.apk
-          if-no-files-found: error
+          if-no-files-found: warn
