@@ -1,0 +1,20 @@
+# ZfC — System Environment Guard
+# LSPosed 模块：环境伪装 + 模拟位置隐藏
+#
+# 合并自：
+#   Shadow (GPS/基站/WiFi 伪装)
+#   HideMockLocation (模拟位置标记隐藏)
+#
+# 扩展：
+#   - 传感器数据伪造 (加速度计/陀螺仪)
+#   - 蓝牙环境隐藏
+#
+# 功能列表：
+#   ✅ GPS 坐标伪装
+#   ✅ 基站 Cell ID 伪装
+#   ✅ WiFi BSSID/SSID 伪装
+#   ✅ 模拟位置标记隐藏 (isFromMockProvider = false)
+#   ✅ AppOps 模拟位置权限隐藏
+#   ✅ Settings.Secure mock_location 隐藏
+#   ✅ 传感器数据伪造 (加速度计/陀螺仪噪声注入)
+#   ✅ 蓝牙设备列表隐藏
