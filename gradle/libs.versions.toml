@@ -1,0 +1,13 @@
+[versions]
+android-application = "8.13.2"
+kotlin-android = "2.3.0"
+libxposed = "101.0.1"
+appcompat = "1.7.0"
+
+[libraries]
+libxposed-api = { group = "io.github.libxposed", name = "api", version.ref = "libxposed" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "android-application" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin-android" }
