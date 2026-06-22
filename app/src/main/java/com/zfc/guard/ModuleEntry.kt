@@ -2,6 +2,7 @@ package com.zfc.guard
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import io.github.libxposed.api.XposedInterface
 import io.github.libxposed.api.XposedModule
 import io.github.libxposed.api.XposedModuleInterface
 
@@ -283,9 +284,12 @@ class ModuleEntry : XposedModule() {
 
     /**
      * 在指定类的所有匹配方法上注册 Hook
-     * LibXposed 不允许重复 Hook，需要过滤 declaredMethods
+     * 使用 (MethodHooker) -> Any? 回调避免 SAM 转换问题
      */
-    private fun hookAllMethods(clazz: Class<*>, methodName: String, hooker: XposedInterface.Hooker) {
+    private fun hookAllMethods(clazz: Class<*>, methodName: String, callback: (XposedInterface.MethodHooker) -> Any?) {
+        val hooker = XposedInterface.Hooker { param ->
+            callback(param)
+        }
         clazz.declaredMethods
             .filter { it.name == methodName }
             .forEach { method ->
